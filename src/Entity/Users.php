@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
  */
@@ -15,32 +12,34 @@ class Users
      * @ORM\Column(type="integer")
      */
     private $id;
-
     /**
-     * @ORM\Column(type="string",type=45)
+     * @ORM\Column(type="string",length=45)
      */
     private $nom;
-
     /**
-     * @ORM\Column(type="string",type=45)
+     * @ORM\Column(type="string",length=45)
      */
     private $prenom;
-
     /**
      * @ORM\Column(type="string",length=255,unique=true)
      */
-    private $email;
-
+    private $mail;
     /**
-     * @ORM\Column(type="string",length=45,)
+     * @ORM\Column(type="string",length=40)
      */
     private $password;
-
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Roles", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Roles",inversedBy="users")
      */
     private $roles;
-
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\UserArticle",mappedBy="users")
+     */
+    private $usersArticle;
+    public function getId()
+    {
+        return $this->id;
+    }
     /**
      * @return mixed
      */
@@ -48,7 +47,6 @@ class Users
     {
         return $this->nom;
     }
-
     /**
      * @param mixed $nom
      */
@@ -56,7 +54,6 @@ class Users
     {
         $this->nom = $nom;
     }
-
     /**
      * @return mixed
      */
@@ -64,7 +61,6 @@ class Users
     {
         return $this->prenom;
     }
-
     /**
      * @param mixed $prenom
      */
@@ -72,23 +68,20 @@ class Users
     {
         $this->prenom = $prenom;
     }
-
     /**
      * @return mixed
      */
-    public function getEmail()
+    public function getMail()
     {
-        return $this->email;
+        return $this->mail;
     }
-
     /**
-     * @param mixed $email
+     * @param mixed $mail
      */
-    public function setEmail($email)
+    public function setMail($mail)
     {
-        $this->email = $email;
+        $this->mail = $mail;
     }
-
     /**
      * @return mixed
      */
@@ -96,7 +89,6 @@ class Users
     {
         return $this->password;
     }
-
     /**
      * @param mixed $password
      */
@@ -104,7 +96,6 @@ class Users
     {
         $this->password = $password;
     }
-
     /**
      * @return mixed
      */
@@ -112,7 +103,6 @@ class Users
     {
         return $this->roles;
     }
-
     /**
      * @param mixed $roles
      */
@@ -120,16 +110,22 @@ class Users
     {
         $this->roles = $roles;
     }
-
-
-
-    public function getId()
+    public function setId($id)
     {
-        return $this->id;
+        $this->id=$id;
     }
-
-    public function setId()
+    /**
+     * @return mixed
+     */
+    public function getUsersArticle()
     {
-        return $this->id;
+        return $this->usersArticle;
+    }
+    /**
+     * @param mixed $userArticle
+     */
+    public function setUsersArticle($usersArticle)
+    {
+        $this->usersArticle = $usersArticle;
     }
 }

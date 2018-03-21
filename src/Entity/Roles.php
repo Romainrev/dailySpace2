@@ -55,7 +55,7 @@ class Roles
     }
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Users",mappedBy="Roles")
+     * @ORM\OneToMany(targetEntity="App\Entity\Users",mappedBy="roles")
      */
     private $users;
 

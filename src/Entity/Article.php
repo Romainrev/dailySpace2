@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
  */
@@ -15,38 +12,39 @@ class Article
      * @ORM\Column(type="integer")
      */
     private $id;
-
-
     /**
      *
      * @ORM\Column(type="string",length=255)
      */
     private $titre;
-
     /**
      *
      * @ORM\Column(type="text")
      */
     private $contenu;
-
     /**
      *
      * @ORM\Column(type="boolean")
      */
     private $spotlight;
-
     /**
      *
      * @ORM\Column(type="string",length=45)
      */
     private $image;
-
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="articles")
      * @ORM\JoinColumn(nullable=false)
      */
     private $categorie;
-
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\UserArticle",inversedBy="article")
+     */
+    private $users;
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\UserArticle",mappedBy="article2")
+     */
+    private $usersArticle;
     /**
      * @return mixed
      */
@@ -54,7 +52,6 @@ class Article
     {
         return $this->titre;
     }
-
     /**
      * @param mixed $titre
      */
@@ -62,7 +59,6 @@ class Article
     {
         $this->titre = $titre;
     }
-
     /**
      * @return mixed
      */
@@ -70,7 +66,6 @@ class Article
     {
         return $this->contenu;
     }
-
     /**
      * @param mixed $contenu
      */
@@ -78,7 +73,6 @@ class Article
     {
         $this->contenu = $contenu;
     }
-
     /**
      * @return mixed
      */
@@ -86,7 +80,6 @@ class Article
     {
         return $this->spotlight;
     }
-
     /**
      * @param mixed $spotlight
      */
@@ -94,7 +87,6 @@ class Article
     {
         $this->spotlight = $spotlight;
     }
-
     /**
      * @return mixed
      */
@@ -102,7 +94,6 @@ class Article
     {
         return $this->image;
     }
-
     /**
      * @param mixed $image
      */
@@ -110,7 +101,6 @@ class Article
     {
         $this->image = $image;
     }
-
     /**
      * @return mixed
      */
@@ -118,7 +108,6 @@ class Article
     {
         return $this->categorie;
     }
-
     /**
      * @param mixed $categorie
      */
@@ -126,16 +115,40 @@ class Article
     {
         $this->categorie = $categorie;
     }
-
-
     public function getId()
     {
         return $this->id;
     }
-
-    public function setId()
+    public function setId($id)
     {
-        return $this->id;
-
+        $this->id = $id;
+    }
+    /**
+     * @return mixed
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+    /**
+     * @param mixed $users
+     */
+    public function setUsers($users)
+    {
+        $this->users = $users;
+    }
+    /**
+     * @return mixed
+     */
+    public function getUsersArticle()
+    {
+        return $this->usersArticle;
+    }
+    /**
+     * @param mixed $usersArticle
+     */
+    public function setUsersArticle($usersArticle)
+    {
+        $this->usersArticle = $usersArticle;
     }
 }
