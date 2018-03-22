@@ -37,7 +37,7 @@ class SecurityController extends Controller
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/inscription",methods={"GET","POST"})
+     * @Route("/inscription",name="inscription",methods={"GET","POST"})
      */
     public function inscription(Request $request, UserPasswordEncoderInterface $passwordEncoder){
         $users = new Users();
