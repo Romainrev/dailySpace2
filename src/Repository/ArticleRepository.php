@@ -47,4 +47,11 @@ class ArticleRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function searchArticle($titre){
+        return $this->createQueryBuilder('a')
+            ->where('a.titre LIKE :titre')
+            ->setParameter('titre',"%$titre%")
+            ->getQuery()
+            ->getResult();
+    }
 }

@@ -6,6 +6,7 @@ use App\Controller\Helper;
 use App\Entity\Article;
 use App\Entity\Categorie;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -23,6 +24,7 @@ class ArticleController extends Controller
     /**
      * @param Request $request
      * @return mixed
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/creer-un-article")
      */
     public function addarticle(Request $request) {
