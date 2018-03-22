@@ -1,5 +1,6 @@
 <?php
 namespace App\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -28,11 +29,11 @@ class Users implements UserInterface
      */
     private $mail;
     /**
-     * @ORM\Column(type="string",length=40)
+     * @ORM\Column(type="string",length=4096)
      */
     private $password;
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Roles",inversedBy="users")
+     * @ORM\Column(type="array")
      */
     private $roles;
     /**
@@ -104,7 +105,7 @@ class Users implements UserInterface
      */
     public function getRoles()
     {
-        return $this->roles;
+        return [$this->roles];
     }
     /**
      * @param mixed $roles
@@ -112,6 +113,7 @@ class Users implements UserInterface
     public function setRoles($roles)
     {
         $this->roles = $roles;
+
     }
     public function setId($id)
     {
@@ -134,16 +136,17 @@ class Users implements UserInterface
 
     public function getSalt()
     {
-        // TODO: Implement getSalt() method.
+        return null;
     }
 
     public function getUsername()
     {
-        // TODO: Implement getUsername() method.
+        return $this->getMail();
     }
 
     public function eraseCredentials()
     {
-        // TODO: Implement eraseCredentials() method.
+        return null;
     }
+
 }
