@@ -1,10 +1,11 @@
 <h1>Page d'accueil</h1>
 
 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <li><a href ="{{ url('compte') }}">Mon Compte</a></li>
     <li><a href="{{ url('deconnexion') }}">Déconnexion</a></li>
 {% else %}
     <li><a href="{{ url('security_connexion') }}">Connexion</a></li>
-    <li><a href="{{ url('inscription') }}">Inscription</li>
+    <li><a href="{{ url('inscription') }}">Inscription</a></li>
 
 {% endif %}
 

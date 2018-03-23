@@ -31,4 +31,12 @@ public function categorie($libelle='test'){
         return $this->render('index/article.html.twig');
 
     }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/monCompte",name="compte")
+     */
+    public function monCompte(){
+        return $this->render('Compte/compte.html.twig');
+    }
 }
