@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+@import url('https://fonts.googleapis.com/css?family=Kalam');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+h3 {
+    font-family: 'Kalam', cursive;
+    font-size: 2.5em;
+    font-weight: 900;
+}
+
+header {
+    width: 100%;
+    height: 100vh;
+    background: url(https://media.wired.com/photos/5a593a7ff11e325008172bc2/master/w_2400,c_limit/pulsar-831502910.jpg) no-repeat 50% 50%;
+    background-size: cover;
+}
+
+.content {
+    float: right;
+    width: 60%;
+    margin: 100px 50px 100px 0px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: justify;
+}
+
+.logo {
+    line-height: 60px;
+    position: fixed;
+    float: left;
+    margin: 16px 46px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    line-height: 50px;
+}
+
+nav ul {
+    line-height: 50px;
+    list-style: none;
+    background: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    color: #fff;
+    padding: 0;
+    text-align: right;
+    margin: 0;
+    padding-right: 40px;
+    transition: 1s;
+}
+
+nav.black ul {
+    background: #10141c;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 15px 20px;
+
+}
+
+nav ul li h3 {
+    font-size: 3em;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-family: 'Amatic SC', cursive;
+
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 19px;
+}
+
+.menu-icon {
+    line-height: 60px;
+    width: 100%;
+    background: #10141c;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 15px 24px;
+    cursor: pointer;
+    color: #fff;
+    display: none;
+}
+
+aside {
+    width: 525px;
+    margin-top: 75px;
+    float: left;
+}
+
+.espace-utilisateur {
+    height: 350px;
+    border: 3px #10141c solid;
+    border-radius: 4px;
+    margin-bottom: 50px;
+}
+
+.espace-utilisateur .info-user {
+    clear: both;
+    float: left;
+    height: 350px;
+    width: 350px;
+    border-right: 1px #10141c solid;
+    background-color: #FFF;
+}
+
+.register {
+    float: right;
+    height: 174px;
+    width: 32.3%;
+    border-bottom: 1px #10141c solid;
+    background-color: #78AFE0;
+}
+
+.login-logout {
+    float: right;
+    height: 175px;
+    width: 32.3%;
+    background-color: #E85837;
+}
+
+.events {
+    font-size: 22px;
+    line-height: 30px;
+    border: 3px #10141C solid;
+}
+
+.events h3 {
+    text-align: center;
+    line-height: 1em;
+}
+
+.events h4 {
+    margin-top: 0px;
+    margin-left: 20px;
+    font-size: 0.8em;
+}
+
+.events p {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+section {
+    clear: both;
+    width: 90%;
+    margin: auto;
+}
+
+.remerciements {
+    clear: both;
+    height: 900px;
+}
+
+.remerciements h3 {
+    text-align: center;
+}
+
+.remerciements ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.remerciements li {
+    width: calc(100% / 4);
+    display: inline-block;
+}
+
+.remerciements ul li img {
+    width: 220px;
+    padding: 50px;
+    margin: 50px;
+    /*width: 50%;*/
+}
+
+.site-partenaires {
+    margin-top: 75px;
+    margin-bottom: 75px;
+    width: 50%;
+    float: left;
+    height: 150px;
+    text-align: center;
+}
+
+.contact {
+    margin-top: 75px;
+    margin-bottom: 75px;
+    width: 50%;
+    float: right;
+    height: 150px;
+    text-align: center;
+}
+
+footer {
+    margin-top: 100px;
+    height: 75px;
+    clear: both;
+}
+
+footer p {
+    width: 50%;
+    font-family: 'Amatic SC', cursive;
+    font-size: 1.8em;
+    text-align: center;
+    margin: auto;
+}
+
+
+
+
+/* Media Queries */
+
+@media(max-width: 786px) {
+
+    .logo {
+        position: fixed;
+        top: 0;
+        margin-top: 16px;
+    }
+
+    .logo {
+        margin: auto;
+    }
+
+    nav ul {
+        max-height: 0px;
+        background: #10141c;
+    }
+
+    nav.black ul {
+        background: #10141c;
+    }
+
+    .showing {
+        max-height: 34em;
+    }
+
+    nav ul li {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 24px;
+        text-align: center;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+}

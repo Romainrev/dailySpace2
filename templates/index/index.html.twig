@@ -1,11 +1,55 @@
-<h1>Page d'accueil</h1>
+{% extends "layout.html.twig" %}
+{% block content %}
+    {{ render(controller('App\\Controller\\dailySpace\\IndexController::sidebar')) }}
 
-{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-    <li><a href ="{{ url('compte') }}">Mon Compte</a></li>
-    <li><a href="{{ url('deconnexion') }}">Déconnexion</a></li>
-{% else %}
-    <li><a href="{{ url('security_connexion') }}">Connexion</a></li>
-    <li><a href="{{ url('inscription') }}">Inscription</a></li>
+    <div class="content">
+        <p>
+            Ce site fut réalisé dans le cadre d'un projet de fin de formation de développeur / intégrateur à la NFactory School
+            de Rouen. L'objectif étant à terme d'obtenir une certification recconu par l'Etat en Front et Back-end.
+        </p>
 
-{% endif %}
+        <p>
+            DailySpace est un site d'actualité dédié au vaste domaine de l'espace. Ici, l'utilisateur pourra trouver
+            les dernières actualités ainsi que les grands évènements qui secoue le monde spacial. De plus, l'utilisateur pourra
+            être en immersion au sein de notre système solaire grâce à une animation representant les planètes, les étoiles et beaucoup d'autre
+            chose. L'utilisateur pourra également découvrir le rôle méconnu de la Normandie dans le secteur de l'aérospatial.
+        </p>
+
+
+    </div>
+
+    <div class="remerciements">
+        <h3>Remerciements</h3>
+        <ul>
+            <li><img src="{{ asset('images/NFT2.jpg') }}"alt="Normandy French Tech"></li>
+            <li><img src="{{ asset("images/RegionHauteNormandie.png") }}" alt=""></li>
+            <li><img src="{{ asset('images/campus-compress.jpg') }}" alt="Campus Saint-Marc"></li>
+            <li><img src="{{ asset('images/nfc.png') }}" alt="NFactory"></li>
+            <li><img src="{{ asset('images/fredericnoel.png') }}" alt="Frederic Noel"></li>
+            <li><img src="{{ asset('images/wf3.png') }}" alt="WF3"></li>
+        </ul>
+    </div>
+
+    <div class="site-partenaires">
+        <h3>Sites Partenaires</h3>
+        <a href="#">Nasa</a>
+        <a href="#">Le CNES</a>
+        <a href="#">Ciel et espace</a>
+        <a href="#">Space X</a>
+        <a href="#">Ariane Espace</a>
+    </div>
+    <div class="contact">
+        <h3>Contacts</h3>
+        <a href="#">Nous contacter</a>
+        <a href="#">Nous rejoindre</a>
+        <a href="#">Sources</a>
+        <a href="#">Mentions légales</a>
+        <a href="#">Pour aller plus loin</a>
+    </div>
+    </section>
+
+
+
+
+{% endblock %}
 

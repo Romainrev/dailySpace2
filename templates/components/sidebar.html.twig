@@ -1,0 +1,22 @@
+
+<section>
+<aside>
+    <div class="espace-utilisateur">
+        <div class="info-user">Infos Utilisateur</div>
+        <div class="register">S'inscrire</div>
+        <div class="login-logout">Login/Logout</div>
+    </div>
+    <div class="events">
+        <h3>Les prochains évènements</h3>
+            {% for evenement in evenements %}
+
+        <div class="entry1">
+            <p></p>
+            <p>{{ evenement.titre }}</p>
+            <h4>{{ evenement.date | date('d/m/y') }}</h4>
+
+        </div>
+        {% endfor %}
+
+
+</aside>
