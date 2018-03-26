@@ -25,7 +25,7 @@ class ArticleController extends Controller
      * @param Request $request
      * @return mixed
      * @Security("has_role('ROLE_ADMIN')")
-     * @Route("/creer-un-article")
+     * @Route("/creer-un-article",name="add_article")
      */
     public function addarticle(Request $request) {
         # Récupération des catégories

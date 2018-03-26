@@ -18,7 +18,7 @@ class EvenementController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Security("has_role('ROLE_ADMIN')")
-     * @Route("/creer-un-evenement")
+     * @Route("/creer-un-evenement",name="add_event")
      */
 
     public function addEvenement(Request $request){
