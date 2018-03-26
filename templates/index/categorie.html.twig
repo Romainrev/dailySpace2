@@ -1,1 +1,12 @@
-<h1>Page Catégorie</h1>
+{% extends 'layout.html.twig' %}
+{% block content %}
+<ul>
+    {% for categorie in categories %}
+        <li><a href="{{ url('index_selectCategorie', {libelle:categorie.libelle}) }}">{{ categorie.libelle }}</a></li>
+    {% endfor %}
+</ul>
+<h3>Les articles du moment</h3>
+{% for spotlights in spotlight %}
+    <p>{{ spotlights.titre }}</p>
+{% endfor %}
+{% endblock %}

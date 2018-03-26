@@ -47,4 +47,12 @@ class EvenementRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findLastfive(){
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.date')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+    }
 }

@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig' %}
+
+{% block page_title %}
+{{ app.request.get('libelle') | capitalize }}
+{% endblock %}
+{% block content %}
+{% if articles is not empty %}
+{% for article in articles %}
+    <p><a href="{{ url('index_article',{'libelle': article.categorie.libelle |slugify,
+            'slugarticle':article.titre | slugify,
+            'id' : article.id |slugify })}}"> {{ article.titre }}</a></p>
+{% endfor %}
+
+{% else %}
+    <p>Aucun articles pour le moment</p>
+
+{% endif %}
+{% endblock %}

@@ -1,7 +1,6 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+    path: /
+    defaults: {_controller: 'App\Controller\dailySpace\IndexController::index'}
 
 deconnexion:
     path: /deconnexion
-

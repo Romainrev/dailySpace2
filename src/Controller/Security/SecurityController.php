@@ -54,6 +54,8 @@ class SecurityController extends Controller
             $em->persist($users);
             $em->flush();
         }
+
+
         return $this->render('Inscription/inscription.html.twig',[
             'form'=>$form->createView()
         ]);
