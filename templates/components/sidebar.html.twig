@@ -1,21 +1,27 @@
-<section>
+
+<section class="content">
     <aside>
         <div class="espace-utilisateur">
-            <div class="info-user">Infos Utilisateur{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                <p>{{ app.user.mail }}</p>
-                <p>{{ app.user.nom }} {{ app.user.prenom }}</p>
-                {% if is_granted('ROLE_ADMIN') %}
-                <li><a href="{{ path('add_article') }}">Ajouter un Article</a></li>
-                    <li><a href="{{ path('add_event') }}">Ajouter un Evenement</a></li>
-                    {% endif %}
-                <li><a href="{{ path('deconnexion') }}">Déconnexion</a></li>
-            {% else %}
-                <li><a href="{{ url('security_connexion') }}">Connexion</a></li>
-                <li><a href="{{ url ('inscription') }}">Inscription</a></li>
 
-                {% endif %}</div>
+            <div class="info-user">Infos Utilisateur</div>
             <div class="register">S'inscrire</div>
             <div class="login-logout">Login/Logout</div>
+            <div class="registration-form">
+                {#<form action="POST">#}
+                {#<label>Nom</label><input type="text">#}
+                {#<label>Prénom</label><input type="text">#}
+                {#<label>Email</label><input type="email" name="email" id="email">#}
+                {#<label>Mot de Passe</label><input type="password" name="password" id="password">#}
+                {#</form>#}
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="search-container">
+                <a href="#/search" class="search-button">
+                    <i class="fa fa-search"></i>
+                </a>
+                <input type="text" placeholder="Votre recherche...">
+            </div>
         </div>
         <div class="events">
             <h3>Les prochains évenements</h3>
@@ -27,4 +33,5 @@
             {% endfor %}
 
         </div>
+
     </aside>

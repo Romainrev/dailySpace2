@@ -104,5 +104,7 @@ class IndexController extends Controller
         $evenements = $this->getDoctrine()->getRepository(Evenement::class)->findLastfive();
         return $this->render('components/sidebar.html.twig', ['evenements' => $evenements]);
     }
+
+
 }
 
