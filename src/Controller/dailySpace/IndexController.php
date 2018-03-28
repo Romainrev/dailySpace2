@@ -62,32 +62,31 @@ class IndexController extends Controller
     /**
      * @param string $article
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("{libelle}/{slugarticle}_{id}.html",name="index_article",requirements={"id"="\d+"},methods={"GET"})
+     * @Route("{libelle}/{slugarticle}_{id}.html",name="index_article",requirements={"id"="\d+"},methods={"GET","POST"})
      */
-    public function article(Article $article, Request $request)
-    {
+    public function article(Article $article, Request $request){
         $commentaire = new Commentaire();
-        $form = $this->createFormBuilder($commentaire)
-            ->add('contenu', TextareaType::class, [
-                'attr' => [
-                    'placeholder' => 'Votre commentaire'
+        $form= $this->createFormBuilder($commentaire)
+            ->add('contenu',TextareaType::class,[
+                'attr'=>[
+                    'placeholder'=>'Votre commentaire'
                 ]
             ])
-            ->add('submit', SubmitType::class, [
-                'label' => 'Commenter'
+            ->add('submit',SubmitType::class,[
+                'label'=>'Commenter'
             ])
             ->getForm();
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $commentaire = $form->getData();
-            $em = $this->getDoctrine()->getManager();
+        if($form->isSubmitted()&& $form->isValid()){
+            $commentaire=$form->getData();
+            $em=$this->getDoctrine()->getManager();
             $em->persist($commentaire);
             $em->flush();
         }
-        return $this->render('index/article.html.twig', [
-            'form' => $form->createView(), 'article' => $article
+        $comments=$this->getDoctrine()->getRepository(Commentaire::class)->findAll();
+        return $this->render('index/article.html.twig',[
+            'form'=>$form->createView(),'article'=>$article,'commentaires'=>$comments
         ]);
-        // return $this->render('index/article.html.twig',['article'=>$article]);
     }
 
     /**

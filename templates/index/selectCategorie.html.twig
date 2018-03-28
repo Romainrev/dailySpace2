@@ -1,18 +1,33 @@
 {% extends 'layout.html.twig' %}
-
 {% block page_title %}
-{{ app.request.get('libelle') | capitalize }}
+    {{ app.request.get('categorie.libelle') | capitalize }}
 {% endblock %}
 {% block content %}
-{% if articles is not empty %}
-{% for article in articles %}
-    <p><a href="{{ url('index_article',{'libelle': article.categorie.libelle |slugify,
-            'slugarticle':article.titre | slugify,
-            'id' : article.id |slugify })}}"> {{ article.titre }}</a></p>
-{% endfor %}
+    <div class="container">
+        {% if articles is not empty %}
+            {% for article in articles %}
 
-{% else %}
-    <p>Aucun articles pour le moment</p>
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="{{ asset('images/'~article.image) }}" alt="image article">
+                        <div class="caption">
+                            <h2>{{ article.titre }}</h2>
 
-{% endif %}
+                            <p><a href="{{ url('index_article',{'libelle': article.categorie.libelle |slugify,
+                                    'slugarticle':article.titre | slugify,
+                                    'id' : article.id |slugify })}}" class="btn btn-primary" role="button">En savoir plus</a></p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            {% endfor %}
+
+        {% else %}
+            <div class="alert alert-danger" role="alert">Aucun article pour le moment</div>
+
+        {% endif %}
+    </div>
 {% endblock %}

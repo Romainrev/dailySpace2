@@ -1,12 +1,29 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
-<ul>
-    {% for categorie in categories %}
-        <li><a href="{{ url('index_selectCategorie', {libelle:categorie.libelle}) }}">{{ categorie.libelle }}</a></li>
-    {% endfor %}
-</ul>
-<h3>Les articles du moment</h3>
-{% for spotlights in spotlight %}
-    <p>{{ spotlights.titre }}</p>
-{% endfor %}
+    <div class="container">
+        <ul class="nav nav-pills">
+            {% for categorie in categories %}
+                <li role="presentation"><a href="{{ url('index_selectCategorie',{libelle:categorie.libelle}) }}">{{ categorie.libelle }}</a></li>
+            {% endfor %}
+        </ul>
+        <h3>Les articles du moment</h3>
+
+        <div class="row">
+            {% for spotlights in spotlight %}
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+
+                        <div class="caption">
+                            <h3>{{ spotlights.titre }}</h3>
+
+                            <p><a href="{{ url('index_article',{'libelle': spotlights.categorie.libelle |slugify,
+                                    'slugarticle':spotlights.titre | slugify,
+                                    'id' : spotlights.id |slugify })}}" class="btn btn-primary" role="button">En savoir plus</a></p>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

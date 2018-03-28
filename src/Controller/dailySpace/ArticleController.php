@@ -60,6 +60,7 @@ class ArticleController extends Controller
                     'class'         =>  'form-control',
                     'placeholder'   =>  'Contenu de l\'Article...'
                 ]
+
             ])
             ->add('image', FileType::class, [
                 'required'      => true,
