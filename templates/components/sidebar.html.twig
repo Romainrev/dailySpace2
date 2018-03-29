@@ -3,14 +3,15 @@
         <div class="espace-utilisateur">
 
             <div class="info-user">{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <p>{{ app.user.mail }}</p>
-                    <p>{{ app.user.nom }} {{ app.user.prenom }}</p>
+                    <p>Votre email : {{ app.user.mail }}</p>
+                    <p>Votre nom :{{ app.user.nom }}</p>
+                    <p>Votre prénom :  {{ app.user.prenom }}</p>
                     {% if is_granted('ROLE_ADMIN') %}
-                        <li><a href="{{ path('add_article') }}">Ajouter un article</a></li>
-                        <li><a href="{{ path('add_event') }}">Ajouter un évenement</a></li>
-                        <li><a href="{{ path('index_email') }}">Envoyer newsletter</a> </li>
+                        <a href="{{ path('add_article') }}"><button>Ajouter un article</button></a>
+                        <a href="{{ path('add_event') }}"><button>Ajouter un évenement</button></a>
+                        <a href="{{ path('index_email') }}"><button>Envoyer newsletter</button></a>
                     {% endif %}
-                    <li><a href="{{ path('deconnexion') }}">Déconnexion</a></li>
+                    <a href="{{ path('deconnexion') }}"><button>Déconnexion</button></a>
                 {% else %}
                     <a href="{{ url('security_connexion') }}"><button type="button" class="btn btn-secondary btn-lg btn-block">Connexion</button></a>
                     <a href="{{ url ('inscription') }}"><button type="button" class="btn btn-secondary btn-lg btn-block">Inscription</button></a>

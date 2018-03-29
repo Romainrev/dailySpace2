@@ -68,6 +68,7 @@ class IndexController extends Controller
         $commentaire = new Commentaire();
         $form= $this->createFormBuilder($commentaire)
             ->add('contenu',TextareaType::class,[
+                'label'=>false,
                 'attr'=>[
                     'placeholder'=>'Votre commentaire'
                 ]
